@@ -5,10 +5,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MTs Darussalam</title>
-    <link rel="stylesheet" href="assets/css/beranda.css">
-    <link rel="stylesheet" href="assets/css/nav.css">
-    <link rel="stylesheet" href="assets/css/footer.css">
-    <link rel="icon" type="image/png" href="assets/img/logomts.png">
+    <link rel="stylesheet" href="{{ asset('assets/css/beranda.css')}}">
+    <link rel="stylesheet" href="{{ asset('assets/css/nav.css')}}">
+    <link rel="stylesheet" href="{{ asset('assets/css/footer.css')}}">
+    <link rel="icon" type="image/png" href="{{ URL::asset('assets/img/logo.png') }}">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css">
     <link
         href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;700;900&family=Inter:wght@100;200;300;400;600;700&display=swap"
@@ -19,26 +19,26 @@
     <input type="checkbox" id="menu-toggle" />
     <nav>
         <a href="" class="brand">
-            <img src="assets/img/logomts.jpeg" alt="Logo MTS Darussalam" />
+            <img src="{{ asset('assets/img/logomts.jpeg')}}" alt="Logo MTS Darussalam" />
             <div class="logotext">
                 <p class="tulisan1">MTS</p>
                 <p class="tulisan2">Darussalam</p>
             </div>
         </a>
         <ul>
-            <li><a href="index.html" class="active">Beranda</a></li>
-            <li><a href="profil.html">Profil</a></li>
-            <li><a href="sdm.html">SDM</a></li>
+            <li><a href="{{ url('/') }}" class="active">Beranda</a></li>
+            <li><a href="{{ url('/profil')}}">Profil</a></li>
+            <li><a href="{{ url('sdm')}}">SDM</a></li>
             <li>
                 <a href="#siswa">Siswa <span class="siswa-arrow">▼</span></a>
                 <ul class="dropdown-menu">
-                    <li><a href="seragam.html">Seragam</a></li>
-                    <li><a href="rombel.html">Rombel</a></li>
-                    <li><a href="eskul.html">Ekstrakurikuler</a></li>
-                    <li><a href="prestasi.html">Prestasi</a></li>
+                    <li><a href="{{ url('/seragam')}}">Seragam</a></li>
+                    <li><a href="{{ url('/rombel')}}">Rombel</a></li>
+                    <li><a href="{{ url('/ekstrakurikuler')}}">Ekstrakurikuler</a></li>
+                    <li><a href="{{ url('/prestasi')}}">Prestasi</a></li>
                 </ul>
             </li>
-            <li><a href="kontak.html">Kontak</a></li>
+            <li><a href="{{ url('/kontak')}}">Kontak</a></li>
         </ul>
         <label class="garis-label" for="menu-toggle" aria-label="Buka menu">
             <span></span>
@@ -48,22 +48,22 @@
     </nav>
     <div class="mobile-menu">
         <ul>
-            <li><a href="index.html" class="active">Beranda</a></li>
-            <li><a href="profil.html">Profil</a></li>
-            <li><a href="sdm.html">SDM</a></li>
+            <li><a href="{{ url('/')}}" class="active">Beranda</a></li>
+            <li><a href="{{ url('/profil')}}">Profil</a></li>
+            <li><a href="{{ url('sdm')}}">SDM</a></li>
             <li class="has-dropdown">
                 <input type="checkbox" id="dropdown-toggle" />
                 <label for="dropdown-toggle">
                     Siswa <span class="arrow">▼</span>
                 </label>
                 <ul class="mobile-dropdown">
-                    <li><a href="seragam.html">Seragam</a></li>
-                    <li><a href="rombel.html">Rombel</a></li>
-                    <li><a href="eskul.html">Ekstrakurikuler</a></li>
-                    <li><a href="prestasi.html">Prestasi</a></li>
+                    <li><a href="{{ url('/seragam')}}">Seragam</a></li>
+                    <li><a href="{{ url('/rombel')}}">Rombel</a></li>
+                    <li><a href="{{ url('/ekstrakurikuler')}}">Ekstrakurikuler</a></li>
+                    <li><a href="{{ url('/prestasi')}}">Prestasi</a></li>
                 </ul>
             </li>
-            <li><a href="kontak.html">Kontak</a></li>
+            <li><a href="{{ url('/kontak')}}">Kontak</a></li>
         </ul>
     </div>
 
@@ -84,7 +84,7 @@
     <section id="sambutan">
         <div class="sambutan-container">
             <div class="sambutan-foto">
-                <img src="assets/img/sambutan1.jpeg" alt="Foto Kepala Sekolah" />
+                <img src="{{ asset('assets/img/sambutan1.jpeg')}}" alt="Foto Kepala Sekolah" />
             </div>
             <div class="sambutan-teks">
                 <h3>Mochamad Syahid S.HI</h3>
@@ -98,7 +98,7 @@
             </div>
         </div>
         <div class="btn-wrapper">
-            <a href="profil.html" class="btn-hero">Lihat Profil Sekolah</a>
+            <a href="{{ url('/profil')}}" class="btn-hero">Lihat Profil Sekolah</a>
         </div>
         <hr style="border: 0.1px solid black; margin: 0; margin-top: 70px; opacity: 0.5;">
     </section>
@@ -110,20 +110,20 @@
         </div>
         <div class="kegiatan-grid">
             <div class="kegiatan-card">
-                <img src="assets/img/muhadoroh.jpeg" alt="Kegiatan Muhadoroh">
+                <img src="{{ asset('assets/img/muhadoroh.jpeg')}}" alt="Kegiatan Muhadoroh">
                 
                 <p>Muhadoroh adalah kegiatan latihan pidato untuk melatih keberanian, percaya diri, dan kemampuan
                     berbicara di depan umum.</p>
             </div>
 
             <div class="kegiatan-card aktif">
-                <img src="assets/img/lkbb.jpeg" alt="Kegiatan LKBB">
+                <img src="{{ asset('assets/img/lkbb.jpeg')}}" alt="Kegiatan LKBB">
                 
                 <p>LKBB adalah latihan baris-berbaris yang melatih disiplin, kekompakan, dan kerja sama tim.</p>
             </div>
 
             <div class="kegiatan-card">
-                <img src="assets/img/pramuka2.jpeg" alt="Kegiatan Pramuka">
+                <img src="{{ asset('assets/img/pramuka2.jpeg')}}" alt="Kegiatan Pramuka">
                 
                 <p>Pramuka adalah kegiatan yang melatih disiplin, kemandirian, dan kepemimpinan melalui kegiatan
                     positif.</p>
@@ -135,17 +135,17 @@
     <section class="section-hero">
         <div class="cards-wrapper">
             <div class="stat-card">
-                <img src="assets/img/murid.png" alt="Total Siswa">
+                <img src="{{ asset('assets/img/murid.png')}}" alt="Total Siswa">
                 <p class="stat-number">119</p>
                 <p class="stat-label">Total Siswa</p>
             </div>
             <div class="stat-card">
-                <img src="assets/img/guru.png" alt="Total Guru">
+                <img src="{{ asset('assets/img/guru.png')}}" alt="Total Guru">
                 <p class="stat-number">13</p>
                 <p class="stat-label">Total Guru</p>
             </div>
             <div class="stat-card">
-                <img src="assets/img/fasilitas.png" alt="Total Fasilitas">
+                <img src="{{ asset('assets/img/fasilitas.png')}}" alt="Total Fasilitas">
                 <p class="stat-number">9</p>
                 <p class="stat-label">Total Fasilitas</p>
             </div>
@@ -168,7 +168,7 @@
                         saya. Saya bangga pernah menjadi bagian dari sekolah ini.</p>
                 </div>
                 <div class="alumni-profile">
-                    <img src="assets/img/rajil.jpeg" alt="Rajil">
+                    <img src="{{ asset('assets/img/rajil.jpeg')}}" alt="Rajil">
                     <div>
                         <p class="alumni-name">Rajil</p>
                         <p class="alumni-desc">Alumni Darussalam, sekolah di SMKN 4</p>
@@ -185,7 +185,7 @@
                         mendukung siswa untuk berkembang lebih baik.</p>
                 </div>
                 <div class="alumni-profile">
-                    <img src="assets/img/gyar.jpeg" alt="M Gyar">
+                    <img src="{{ asset('assets/img/gyar.jpeg')}}" alt="M Gyar">
                     <div>
                         <p class="alumni-name">M Gyar</p>
                         <p class="alumni-desc">Alumni Darussalam, sekolah di SMKN 4</p>
@@ -202,7 +202,7 @@
                         melahirkan siswa-siswi yang berprestasi.</p>
                 </div>
                 <div class="alumni-profile">
-                    <img src="assets/img/gilang.jpeg" alt="Gilang">
+                    <img src="{{ asset('assets/img/gilang.jpeg')}}" alt="Gilang">
                     <div>
                         <p class="alumni-name">Gilang</p>
                         <p class="alumni-desc">Alumni Darussalam, sekolah di SMKN 4</p>
@@ -217,9 +217,9 @@
         <!-- TOP ROW: Logo + Visi -->
         <div class="top-row">
             <div class="logos">
-                <img src="kontak/img/yayasan.png" alt="Logo 1" />
-                <img src="kontak/img/kemenag.png" alt="Logo 2" />
-                <img src="kontak/img/mts.png" alt="Logo 3" />
+                <img src="{{ asset('kontak/img/yayasan.png')}}" alt="Logo 1" />
+                <img src="{{ asset('kontak/img/kemenag.png')}}" alt="Logo 2" />
+                <img src="{{ asset('kontak/img/mts.png')}}" alt="Logo 3" />
             </div>
             <p class="visi-text">
                 "Terwujudnya sekolah yang melahirkan peserta didik berkarakter,
@@ -237,7 +237,7 @@
                 <p class="kontak-title">Kontak</p>
 
                 <div class="kontak-item">
-                    <img src="kontak/img/icons8-phone-50.png" alt="Telepon" />
+                    <img src="{{ asset('kontak/img/icons8-phone-50.png')}}" alt="Telepon" />
                     <div>
                         <p class="label">Telepon</p>
                         <p class="value">+62 877-2552-5133</p>
@@ -246,7 +246,7 @@
                 <hr class="kontak-divider" />
 
                 <div class="kontak-item">
-                    <img src="kontak/img/icons8-email-30.png" alt="Email" />
+                    <img src="{{ asset('kontak/img/icons8-email-30.png')}}" alt="Email" />
                     <div>
                         <p class="label">Email</p>
                         <p class="value">mtsmomo@gmail.com</p>
@@ -255,7 +255,7 @@
                 <hr class="kontak-divider" />
 
                 <div class="kontak-item">
-                    <img src="kontak/img/icons8-location-50.png" alt="Alamat" />
+                    <img src="{{ asset('kontak/img/icons8-location-50.png')}}" alt="Alamat" />
                     <div>
                         <p class="label">Alamat</p>
                         <p class="value">
@@ -268,7 +268,7 @@
                 <hr class="kontak-divider" />
 
                 <div class="kontak-item">
-                    <img src="kontak/img/icons8-clock-50.png" alt="Jam Kerja" />
+                    <img src="{{ asset('kontak/img/icons8-clock-50.png')}}" alt="Jam Kerja" />
                     <div>
                         <p class="label">Jam Kerja</p>
                         <p class="value">Senin- Sabtu: 06.30 AM - 16.00 PM</p>
@@ -281,7 +281,7 @@
                 <div class="sosmed-item">
                     <a href="https://www.instagram.com/mochamad_syahid?igsh=eDZ4MGp0enozcXA4">
                         <div class="icon-circle">
-                            <img src="kontak/img/ig.png" alt="Instagram" />
+                            <img src="{{ asset('kontak/img/ig.png')}}" alt="Instagram" />
                         </div>
                     </a>
                     <a href="https://www.instagram.com/mochamad_syahid?igsh=eDZ4MGp0enozcXA4">
@@ -292,7 +292,7 @@
                 <div class="sosmed-item">
                     <a href="https://www.tiktok.com/@darussalam_la?_r=1&_t=ZS-965C41c59mu">
                         <div class="icon-circle">
-                            <img src="kontak/img/tt.png" alt="TikTok" />
+                            <img src="{{ asset('kontak/img/tt.png')}}" alt="TikTok" />
                         </div>
                     </a>
                     <a href="https://www.tiktok.com/@darussalam_la?_r=1&_t=ZS-965C41c59mu">
@@ -303,7 +303,7 @@
                 <div class="sosmed-item">
                     <a href="https://www.facebook.com/PPDBDarussalamleuwianyar">
                         <div class="icon-circle">
-                            <img src="kontak/img/icons8-facebook-30.png" alt="Facebook" />
+                            <img src="{{ asset('kontak/img/icons8-facebook-30.png')}}" alt="Facebook" />
                         </div>
                     </a>
                     <a href="https://www.facebook.com/PPDBDarussalamleuwianyar">
@@ -314,7 +314,7 @@
                 <div class="sosmed-item">
                     <a href="https://youtube.com/@darussalamleuwianyar?si=3GTPEKXgchUXX8zx">
                         <div class="icon-circle">
-                            <img src="kontak/img/yt.png" alt="YouTube" />
+                            <img src="{{ asset('kontak/img/yt.png')}}" alt="YouTube" />
                         </div>
                     </a>
                     <a href="https://youtube.com/@darussalamleuwianyar?si=3GTPEKXgchUXX8zx" class="">
