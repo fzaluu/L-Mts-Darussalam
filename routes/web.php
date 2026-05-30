@@ -2,6 +2,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\UserController;
+// area publik di aksess
 Route::get('/', function () {
     return view('index');
 });
@@ -10,7 +11,7 @@ Route::get('/profil', function () {
     return view('profil');
 });
 
-// Jalur untuk pengguna yang BELUM LOGIN (Guest)
+// untuk yang belum login
 Route::middleware('guest')->group(function () {
     // 1. Menampilkan halaman form login
     Route::get('/login', [AuthController::class, 'showLogin'])->name('login');
@@ -21,9 +22,9 @@ Route::middleware('guest')->group(function () {
 
 // Jalur untuk pengguna yang SUDAH LOGIN (Auth)
 Route::middleware('auth')->group(function () {
-    // Halaman utama setelah berhasil login (Dashboard)
+    // user akan diarahkan ke halaman dashboard
     Route::get('/dashboard', function () {
-        return view('admin.dashboard'); // Pastikan nanti kamu punya file dashboard.blade.php
+        return view('admin.dashboard'); // 
     })->name('admin.dashboard');
     // ini data siswa
     Route::get('/admin/siswa', function() {
@@ -45,7 +46,7 @@ Route::middleware('auth')->group(function () {
     Route::get('/admin/kelas', function() {
         return view('admin.kelas.index');
     });
-    // Jalur CRUD User yang kodenya sudah kamu buat tadi
+    // CRUD users
     Route::resource('users', UserController::class);
 
     // Jalur untuk Logout
