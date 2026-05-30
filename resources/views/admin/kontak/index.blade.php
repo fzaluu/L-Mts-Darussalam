@@ -3,87 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dashboard</title>
+    <title>Data Kontak/pesan masuk</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-    <style>
-        .wrapper {
-    display: flex;
-    flex: 1;
-    overflow: hidden;
-}
-        .sidebar {
-    width: 205px;
-    background-color: rgba(200, 230, 230, 0.75);
-    display: flex;
-    flex-direction: column;
-    padding: 16px 0;
-    flex-shrink: 0;
-}
-
-.sidebar .brand {
-    font-size: 14px;
-    font-weight: bold;
-    padding: 0 16px 16px;
-    color: #3DA9FC;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
-}
-
-.sidebar nav {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    margin-top: 10px;
-}
-
-.sidebar nav a {
-    display: block;
-    padding: 14px 16px;
-    font-size: 13px;
-    color: #333;
-    text-decoration: none;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.06);
-    transition: background 0.2s;
-}
-
-.sidebar nav a:hover,
-.sidebar nav a:active {
-    background-color: rgba(61, 169, 252, 0.2);
-    color: #3DA9FC;
-    font-weight: bold;
-}
-
-.sidebar .logout {
-    padding: 14px 16px;
-    font-size: 13px;
-    color: #e05;
-    font-weight: bold;
-    cursor: pointer;
-    text-decoration: none;
-}
-
-.sidebar .logout:hover {
-    background-color: rgba(255, 0, 80, 0.1);
-}
-
-.main {
-    flex: 1;
-    overflow-y: auto;
-    padding: 20px;
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
-}
-
-    </style>
 </head>
 <body>
-
-    @if(session('success'))
-    <div class="alert alert-success text-center">
-        {{ session('success')}}
-    </div>
-    @endif
-
     <nav class="navbar navbar-expand-md navbar-light bg-primary">
         <div class="container">
             <a class="navbar-brand" href="#">Latihan</a>
@@ -115,11 +38,34 @@
             </div>
         </div>
     </nav>
-        <h3>Selamat Datang,{{ Auth::user()->name }}!</h3>
-
-        <form action="{{ route('logout')}}" method="post" class="d-inline">
-            @csrf
-            <button type="submit" class="btn btn-danger">Logout</button>
-        </form>
+    <div class="container mt-5">
+        <h3>Tabel Kontak</h3>
+        <a href="#" class="btn btn-outline-secondary my-3">Tambah</a>
+        <div class="row justify-content-center align-items-center">
+                <table class="table table-hover table-striped table-bordered border-dark">
+                            <thead>
+                                <tr class="table-hover table-dark table-active"> 
+                                    <th scope="col">No</th>
+                                    <th scope="col">Nama</th>
+                                    <th scope="col">Email</th>
+                                    <th scope="col">Pesan</th>
+                                    <th class="text-center" scope="col">Aksi</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr class="table-active">
+                                    <th scope="row">1</th>
+                                    <td>Udin</td>
+                                    <td>@udin</td>
+                                    <td>Paseh</td>
+                                    <td> <a href="">Edit</a>
+                                    |
+                                    <a href="">Hapus</a>
+                                    </td>
+                                </tr>
+                        </tbody>
+                </table>    
+        </div>
+    </div>
 </body>
 </html>
