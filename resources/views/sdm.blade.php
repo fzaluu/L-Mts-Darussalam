@@ -69,83 +69,67 @@
       <li><a href="kontak.html">Kontak</a></li>
     </ul>
   </div>
-  <section class="struktur-section">
-    <div class="struktur-container">
 
-      <div class="section1-title">
-        <span>STRUKTUR ORGANISASI</span>
-      </div>
+<section class="struktur-section">
+  <div class="struktur-container">
 
-      <div class="sdm-container">
-        <div class="grid-pengajar">
-          <div class="card-custom">
-            <img src="assets/img/m.syahid.jpeg" alt="Kepala Sekolah">
-            <div class="info-struktur">
-              <p class="nama-struktur">Muhammad Syahid, S.HI</p>
-              <p class="jabatan-struktur">Kepala Sekolah</p>
-            </div>
-          </div>
-        </div>
-
-        <div class="struktur-row">
-          <div class="card-custom">
-            <img src="assets/img/eris.jpeg" alt="Tata Usaha">
-            <div class="info-struktur">
-              <p class="nama-struktur">Eris Asy'ary, S.Pd</p>
-              <p class="jabatan-struktur">Tata Usaha</p>
-            </div>
-          </div>
-          <div class="card-custom">
-            <img src="assets/img/anwar.jpeg" alt="Wakabid Kurikulum">
-            <div class="info-struktur">
-              <p class="nama-struktur">Anwar, S.S,S.S.I</p>
-              <p class="jabatan-struktur">Wakabid Kurikulum</p>
-            </div>
-          </div>
-          <div class="card-custom">
-            <img src="assets/img/dede.jpeg" alt="Wakabid Kesiswaan">
-            <div class="info-struktur">
-              <p class="nama-struktur">Dede Bukhori, S.HI</p>
-              <p class="jabatan-struktur">Wakabid Kesiswaan</p>
-            </div>
-          </div>
-          <div class="card-custom">
-            <img src="assets/img/eha.jpeg" alt="Bag.Sapras">
-            <div class="info-struktur">
-              <p class="nama-struktur">Eha Juleha, S.Pd</p>
-              <p class="jabatan-struktur">Bag.Sapras</p>
-            </div>
-          </div>
-        </div>
-
-        <div class="struktur-row">
-          <div class="card-custom">
-            <img src="assets/img/aan.jpeg" alt="Perusahaan">
-            <div class="info-struktur">
-              <p class="nama-struktur">Aan Setianah, S.H</p>
-              <p class="jabatan-struktur">Perusahaan</p>
-            </div>
-          </div>
-          <div class="card-custom">
-            <img src="assets/img/ipan.png" alt="BK dan Humas">
-            <div class="info-struktur">
-              <p class="nama-struktur">Ipan Sopan, S.Pd.I</p>
-              <p class="jabatan-struktur">Bimbingan Konseling & Humas</p>
-            </div>
-          </div>
-          <div class="card-custom">
-            <img src="assets/img/adisti.jpeg" alt="Pembina Osis">
-            <div class="info-struktur">
-              <p class="nama-struktur">Adisti Nuryani</p>
-              <p class="jabatan-struktur">Pembina Osis</p>
-            </div>
-          </div>
-        </div>
-      </div>
-
+    <div class="section1-title">
+      <span>STRUKTUR ORGANISASI</span>
     </div>
-  </section>
+    <div class="text-end mb-4">
+     <a href="/Sdm/tambah" class="btn btn-primary my-2"> + Tambah Data</a
+    </div>
+
+<div class="sdm-container">
   
+  <div class="grid-pengajar">
+    @foreach($sdm as $data)
+      @if($data->jabatan == 'Kepala Sekolah')
+        <div class="card-custom">
+          <img src="{{ asset('assets/img/' . $data->foto) }}" alt="Kepala Sekolah">
+          <div class="info-struktur">
+            <p class="nama-struktur">{{ $data->nama_guru }}</p>
+            <p class="jabatan-struktur">{{ $data->jabatan }}</p>
+            <a href="/Sdm/{{ $data->id }}/edit" class="btn btn-sm btn-warning"> Edit</a>
+          <form action="/Sdm/{{ $data->id }}" method="POST" class="d-inline"
+                onsubmit="return confirm('Apakah anda yakin ingin menghapus data ini?')">
+              @csrf
+              @method('DELETE')
+              <button type="submit" class="btn btn-sm btn-danger">
+                  Hapus
+              </button>
+          </form>
+          </div>
+        </div>
+      @endif
+    @endforeach
+  </div>
+
+  <div class="struktur-row" style="display: flex; flex-wrap: wrap; justify-content: center; gap: 20px;">
+    @foreach($sdm as $data)
+      @if($data->jabatan != 'Kepala Sekolah')
+        <div class="card-custom">
+          <img src="{{ asset('assets/img/' . $data->foto) }}" alt="{{ $data->jabatan }}">
+          <div class="info-struktur">
+            <p class="nama-struktur">{{ $data->nama_guru }}</p>
+            <p class="jabatan-struktur">{{ $data->jabatan }}</p>
+              <a href="/Sdm/edit/{{ $data->id }}" class="btn btn-sm btn-warning">Edit</a>
+              <form action="/Sdm/hapus/{{ $data->id }}" method="POST" class="d-inline"
+                  onsubmit="return confirm('Apakah anda yakin ingin menghapus data ini?')">
+                @csrf
+                @method('DELETE')
+                <button type="submit" class="btn btn-sm btn-danger">Hapus</button>
+            </form>
+          </div>
+        </div>
+      @endif
+    @endforeach
+  </div>
+
+</div>
+
+  </div>
+</section>
   <section class="sdm-section">
 
 <div class="section2-title">

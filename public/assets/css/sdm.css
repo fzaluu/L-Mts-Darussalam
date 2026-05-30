@@ -99,6 +99,7 @@ body {
     border-radius: 14px;
     overflow: hidden; /* Sembunyikan info yang geser ke bawah */
     border: 3px solid #000;
+    border-radius: 30px;
     cursor: pointer;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     box-shadow: 4px 4px 0px rgba(0, 0, 0, 0.3);
@@ -112,8 +113,8 @@ body {
 }
 
 .card-custom img {
-    width: 100%;
-    height: 100%; /* Gunakan full tinggi kartu, overlap dengan info */
+    width:223px;
+    height: 241px; /* Gunakan full tinggi kartu, overlap dengan info */
     object-fit: cover;
     object-position: top center;
     display: block;
