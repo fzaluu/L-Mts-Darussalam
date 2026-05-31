@@ -59,8 +59,6 @@ Route::middleware('auth')->group(function () {
     // CRUD users
 
     Route::resource('users', UserController::class);
-    // 1 route aja biar enak
-    Route::resource('sdm', SdmController::class);
 
     // Jalur untuk Logout
     Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
@@ -76,7 +74,7 @@ Route::middleware('auth')->group(function () {
 // Route::put('/Sdm/update/{id}', [SdmController::class, 'update']);   
 // Route::delete('/Sdm/hapus/{id}', [SdmController::class, 'destroy']);
 Route::get('/admin/guru', [SdmController::class, 'index']);
-Route::get('/Sdm', [SdmController::class, 'sdm']);
+Route::get('/sdm', [SdmController::class, 'sdm']);
 Route::get('/admin/guru/create', [SdmController::class, 'create']);
 Route::post('/admin/guru', [SdmController::class, 'store']);
 Route::get('/admin/guru/{id}/edit', [SdmController::class, 'edit']);
