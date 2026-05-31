@@ -17,8 +17,22 @@ Route::get('/', function () {
 Route::get('/profil', function () {
     return view('profil');
 });
+Route::get('//ekstrakurikuler', function () {
+    return view('eskul');
+});
+Route::get('/rombel', function () {
+    return view('rombel');
+});
+Route::get('/kelas', function () {
+    return view('kelas');
+});
+
+
 
 Route::get('/Sdm', [SdmController::class, 'index']);
+Route::get('/kontak', function() {
+    return view('kontak');
+});
 Route::post('/kontak-kirim', [KontakController::class, 'store'])->name('kontak.store');
 
 

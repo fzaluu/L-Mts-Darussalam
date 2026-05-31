@@ -8,7 +8,7 @@
   <link rel="stylesheet" href="assets/css/nav.css">
   <link rel="stylesheet" href="assets/css/profil.css">
   <link rel="stylesheet" href="assets/css/footer.css">
-  <link rel="icon" type="image/png" href="assets/img/logomts.png">
+  <link rel="icon" type="image/png" href="{{ URL::asset('assets/img/logo.png') }}">
 </head>
 <style>
   .footer {
@@ -249,12 +249,23 @@
       </div>
 
       <!-- Form -->
-      <div class="form-section">
-        <input type="text" placeholder="Nama" />
-        <input type="email" placeholder="Email" />
-        <textarea placeholder="Pesan"></textarea>
-        <button class="btn-submit" type="button">Kirim</button>
-      </div>
+      <form action="{{ route('kontak.store')}}" method="post">
+          @csrf
+          <div class="form-section">
+              @if(session('success'))
+                <div style="background-color: #d1e7dd; color: #0f5132; padding: 12px; border-radius: 4px; margin-bottom: 12px; text-align: center; font-size: 14px;">
+                      {{ session('success') }}
+                </div>
+              @endif
+              <input name="nama" type="text" placeholder="Nama" />
+                @error('nama')
+                  <small class="text-danger">{{ $message }}</small>
+                  @enderror
+              <input name="email" type="email" placeholder="Email" />
+              <textarea name="pesan" placeholder="Pesan"></textarea>
+              <button class="btn-submit" type="submit">Kirim</button>
+              </div>
+        </form>
     </div>
 
     <hr class="divider" />

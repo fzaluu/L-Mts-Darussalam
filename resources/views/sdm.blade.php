@@ -5,12 +5,12 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>SDM Sekolah</title>
-  <link rel="icon" type="image/png" href="assets/img/logomts.png">
+  <link rel="icon" type="image/png" href="{{ URL::asset('assets/img/logo.png') }}">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-  <link rel="stylesheet" href="assets/css/nav.css">
-  <link rel="stylesheet" href="assets/css/footer.css">
-  <link rel="stylesheet" href="assets/css/sdm.css">
+  <link rel="stylesheet" href="{{ asset('assets/css/nav.css')}}">
+  <link rel="stylesheet" href="{{ asset('assets/css/footer.css')}}">
+  <link rel="stylesheet" href="{{ asset('assets/css/sdm.css')}}">
 </head>
 
 <body>
@@ -19,7 +19,7 @@
 
   <nav>
     <a href="" class="brand">
-      <img src="assets/img/logomts.jpeg" alt="Logo MTS Darussalam" />
+      <img src="{{ asset('assets/img/logomts.jpeg')}}" alt="Logo MTS Darussalam" />
       <div class="logotext">
         <p class="tulisan1">MTS</p>
         <p class="tulisan2">Darussalam</p>
@@ -27,19 +27,19 @@
     </a>
 
     <ul>
-      <li><a href="index.html">Beranda</a></li>
-      <li><a href="profil.html">Profil</a></li>
-      <li><a href="sdm.html" class="active">SDM</a></li>
+      <li><a href="{{ url('/') }}">Beranda</a></li>
+      <li><a href="{{ url('/profil')}}">Profil</a></li>
+      <li><a href="{{ url('/sdm')}}" class="active">SDM</a></li>
       <li>
         <a href="#siswa">Siswa <span class="siswa-arrow">▼</span></a>
         <ul class="dropdown-menu">
-          <li><a href="seragam.html">Seragam</a></li>
-          <li><a href="rombel.html">Rombel</a></li>
-          <li><a href="eskul.html">Ekstrakurikuler</a></li>
-          <li><a href="prestasi.html">Prestasi</a></li>
+          <li><a href="{{ url('/seragam')}}">Seragam</a></li>
+          <li><a href="{{ url('/rombel')}}">Rombel</a></li>
+          <li><a href="{{ url('/ekstrakurikuler')}}">Ekstrakurikuler</a></li>
+          <li><a href="{{ url('/prestasi')}}">Prestasi</a></li>
         </ul>
       </li>
-      <li><a href="kontak.html">Kontak</a></li>
+      <li><a href="{{ url('/kontak')}}">Kontak</a></li>
     </ul>
 
     <label class="garis-label" for="menu-toggle" aria-label="Buka menu">
@@ -51,22 +51,22 @@
 
   <div class="mobile-menu">
     <ul>
-      <li><a href="index.html">Beranda</a></li>
-      <li><a href="profil.html">Profil</a></li>
-      <li><a href="sdm.html" class="active">SDM</a></li>
+      <li><a href="{{ url('/') }}">Beranda</a></li>
+      <li><a href="{{ url('/profil')}}">Profil</a></li>
+      <li><a href="{{ url('/sdm')}}" class="active">SDM</a></li>
       <li class="has-dropdown">
         <input type="checkbox" id="dropdown-toggle" />
         <label for="dropdown-toggle">
           Siswa <span class="arrow">▼</span>
         </label>
         <ul class="mobile-dropdown">
-          <li><a href="seragam.html">Seragam</a></li>
-          <li><a href="rombel.html">Rombel</a></li>
-          <li><a href="eskul.html">Ekstrakurikuler</a></li>
-          <li><a href="prestasi.html">Prestasi</a></li>
+          <li><a href="{{ url('/seragam')}}">Seragam</a></li>
+          <li><a href="{{ url('/rombel')}}">Rombel</a></li>
+          <li><a href="{{ url('/ekstrakurikuler')}}">Ekstrakurikuler</a></li>
+          <li><a href="{{ url('/prestasi')}}">Prestasi</a></li>
         </ul>
       </li>
-      <li><a href="kontak.html">Kontak</a></li>
+      <li><a href="{{ url('/kontak')}}">Kontak</a></li>
     </ul>
   </div>
 
@@ -232,9 +232,9 @@
   <footer class="footer">
     <div class="top-row">
       <div class="logos">
-        <img src="kontak/img/yayasan.png" alt="Logo 1" />
-        <img src="kontak/img/kemenag.png" alt="Logo 2" />
-        <img src="kontak/img/mts.png" alt="Logo 3" />
+        <img src="{{ asset('kontak/img/yayasan.png')}}" alt="Logo 1" />
+        <img src="{{ asset('kontak/img/kemenag.png')}}" alt="Logo 2" />
+        <img src="{{ asset('kontak/img/mts.png')}}" alt="Logo 3" />
       </div>
       <p class="visi-text">
         "Terwujudnya sekolah yang melahirkan peserta didik berkarakter,
@@ -250,7 +250,7 @@
         <p class="kontak-title">Kontak</p>
 
         <div class="kontak-item">
-          <img src="kontak/img/icons8-phone-50.png" alt="Telepon" />
+          <img src="{{ asset('kontak/img/icons8-phone-50.png')}}" alt="Telepon" />
           <div>
             <p class="label">Telepon</p>
             <p class="value">+62 877-2552-5133</p>
@@ -259,7 +259,7 @@
         <hr class="kontak-divider" />
 
         <div class="kontak-item">
-          <img src="kontak/img/icons8-email-30.png" alt="Email" />
+          <img src="{{ asset('kontak/img/icons8-email-30.png')}}" alt="Email" />
           <div>
             <p class="label">Email</p>
             <p class="value">mtsmomo@gmail.com</p>
@@ -268,7 +268,7 @@
         <hr class="kontak-divider" />
 
         <div class="kontak-item">
-          <img src="kontak/img/icons8-location-50.png" alt="Alamat" />
+          <img src="{{ asset('kontak/img/icons8-location-50.png')}}" alt="Alamat" />
           <div>
             <p class="label">Alamat</p>
             <p class="value">
@@ -281,7 +281,7 @@
         <hr class="kontak-divider" />
 
         <div class="kontak-item">
-          <img src="kontak/img/icons8-clock-50.png" alt="Jam Kerja" />
+          <img src="{{ asset('kontak/img/icons8-clock-50.png')}}" alt="Jam Kerja" />
           <div>
             <p class="label">Jam Kerja</p>
             <p class="value">Senin- Sabtu: 06.30 AM - 16.00 PM</p>
@@ -293,7 +293,7 @@
         <div class="sosmed-item">
           <a href="https://www.instagram.com/mochamad_syahid?igsh=eDZ4MGp0enozcXA4">
             <div class="icon-circle">
-              <img src="kontak/img/ig.png" alt="Instagram" />
+              <img src="{{ asset('kontak/img/ig.png')}}" alt="Instagram" />
             </div>
           </a>
           <a href="https://www.instagram.com/mochamad_syahid?igsh=eDZ4MGp0enozcXA4">
@@ -303,7 +303,7 @@
         <div class="sosmed-item">
           <a href="https://www.tiktok.com/@darussalam_la?_r=1&_t=ZS-965C41c59mu">
             <div class="icon-circle">
-              <img src="kontak/img/tt.png" alt="TikTok" />
+              <img src="{{ asset('kontak/img/tt.png')}}" alt="TikTok" />
             </div>
           </a>
           <a href="https://www.tiktok.com/@darussalam_la?_r=1&_t=ZS-965C41c59mu">
@@ -313,7 +313,7 @@
         <div class="sosmed-item">
           <a href="https://www.facebook.com/PPDBDarussalamleuwianyar">
             <div class="icon-circle">
-              <img src="kontak/img/icons8-facebook-30.png" alt="Facebook" />
+              <img src="{{ asset('kontak/img/icons8-facebook-30.png')}}" alt="Facebook" />
             </div>
           </a>
           <a href="https://www.facebook.com/PPDBDarussalamleuwianyar">
@@ -323,7 +323,7 @@
         <div class="sosmed-item">
           <a href="https://youtube.com/@darussalamleuwianyar?si=3GTPEKXgchUXX8zx">
             <div class="icon-circle">
-              <img src="kontak/img/yt.png" alt="YouTube" />
+              <img src="{{ asset('kontak/img/yt.png')}}" alt="YouTube" />
             </div>
           </a>
           <a href="https://youtube.com/@darussalamleuwianyar?si=3GTPEKXgchUXX8zx" class="">
@@ -332,13 +332,22 @@
         </div>
       </div>
 
->
-        <div class="form-section">
-          <input type="text" placeholder="Nama" />
-          <input type="email" placeholder="Email" />
-          <textarea placeholder="Pesan"></textarea>
-          <button class="btn-submit" type="button">Kirim</button>
-        </div>
+      <form action="{{ route('kontak.store')}}" method="post">
+                @csrf
+            <div class="form-section">
+                    @if(session('success'))
+                    <div style="background-color: #d1e7dd; color: #0f5132; padding: 12px; border-radius: 4px; margin-bottom: 12px; text-align: center; font-size: 14px;">
+                        {{ session('success') }}
+                    </div>
+                    @endif
+                    <input name="nama" type="text" placeholder="Nama" />
+                        @error('nama')
+                            <small class="text-danger">{{ $message }}</small>
+                        @enderror
+                    <input name="email" type="email" placeholder="Email" />
+                    <textarea name="pesan" placeholder="Pesan"></textarea>
+                    <button class="btn-submit" type="submit">Kirim</button>
+            </div>
       </form>
     </div>
 
