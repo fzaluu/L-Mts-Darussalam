@@ -28,7 +28,7 @@
         <ul>
             <li><a href="{{ url('/') }}" class="active">Beranda</a></li>
             <li><a href="{{ url('/profil')}}">Profil</a></li>
-            <li><a href="{{ url('sdm')}}">SDM</a></li>
+            <li><a href="{{ url('/sdm')}}">SDM</a></li>
             <li>
                 <a href="#siswa">Siswa <span class="siswa-arrow">▼</span></a>
                 <ul class="dropdown-menu">
