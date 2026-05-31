@@ -1,8 +1,4 @@
 <?php
-
-
-
-
 use App\Http\Controllers\SdmController;
 
 use Illuminate\Support\Facades\Route;
