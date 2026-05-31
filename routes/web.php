@@ -1,10 +1,14 @@
 <?php
 
+
+
+
 use App\Http\Controllers\SdmController;
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\KontakController;
 // area publik di aksess
 Route::get('/', function () {
     return view('index');
@@ -13,6 +17,10 @@ Route::get('/', function () {
 Route::get('/profil', function () {
     return view('profil');
 });
+
+Route::get('/Sdm', [SdmController::class, 'index']);
+Route::post('/kontak-kirim', [KontakController::class, 'store'])->name('kontak.store');
+
 
 // untuk yang belum login
 Route::middleware('guest')->group(function () {
@@ -38,9 +46,8 @@ Route::middleware('auth')->group(function () {
         return view('admin.guru.index');
     });
     // ini data kontak
-    Route::get('/admin/kontak', function() {
-        return view('admin.kontak.index');
-    });
+    Route::get('/admin/kontak', [KontakController::class , 'index'])->name('admin.kontak.index');
+    Route::delete('/admin/kontak/{id}', [KontakController::class , 'destroy'])->name('admin.kontak.destroy');
     // ini data prestasi
     Route::get('/admin/prestasi', function() {
         return view('admin.prestasi.index');
@@ -52,10 +59,13 @@ Route::middleware('auth')->group(function () {
     // CRUD users
 
     Route::resource('users', UserController::class);
+    // 1 route aja biar enak
+    Route::resource('sdm', SdmController::class);
 
     // Jalur untuk Logout
     Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 });
+
 
 
 //SDM
@@ -72,3 +82,4 @@ Route::post('/admin/guru', [SdmController::class, 'store']);
 Route::get('/admin/guru/{id}/edit', [SdmController::class, 'edit']);
 Route::put('/admin/guru/{id}', [SdmController::class, 'update']);
 Route::delete('/admin/guru/{id}', [SdmController::class, 'destroy']);
+
