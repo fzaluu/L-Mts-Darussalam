@@ -53,16 +53,22 @@
                                 </tr>
                             </thead>
                             <tbody>
+                                @foreach($kontak as $pesan)
                                 <tr class="table-active">
-                                    <th scope="row">1</th>
-                                    <td>Udin</td>
-                                    <td>@udin</td>
-                                    <td>Paseh</td>
-                                    <td> <a href="">Edit</a>
+                                    <th scope="row">{{ $loop->iteration}}</th>
+                                    <td>{{ $pesan->nama }}</td>
+                                    <td>{{ $pesan->email}}</td>
+                                    <td>{{ $pesan->pesan}}</td>
+                                    <td class="text-center"> <a class="btn btn-warning btn-sm" href="">Edit</a>
                                     |
-                                    <a href="">Hapus</a>
+                                    <form action="{{ route('admin.kontak.destroy', $pesan->id)}}" class="d-inline" method="post" onclick="return confirm('yakin mau Hapus data ini?')">
+                                        @csrf
+                                        @method('DELETE')
+                                        <button class="btn btn-danger btn-sm" type="submit">Hapus</button>
+                                    </form>
                                     </td>
                                 </tr>
+                                @endforeach
                         </tbody>
                 </table>    
         </div>
