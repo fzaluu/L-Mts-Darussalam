@@ -3,13 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <title>Tambah Guru</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
-    
+
 <div class="container mt-4">
-    <form action="/Sdm/simpan" method="POST" enctype="multipart/form-data">
+    <h3>Tambah Data Guru</h3>
+    <form action="/admin/guru" method="POST" enctype="multipart/form-data">
         @csrf
 
         <div class="mb-3">
@@ -32,9 +33,10 @@
             <input type="file" name="foto" class="form-control">
         </div>
 
+      <a href="/admin/guru" class="btn btn-secondary">Batal</a>
         <button type="submit" class="btn btn-primary">Simpan</button>
     </form>
 </div>
+
 </body>
 </html>
-

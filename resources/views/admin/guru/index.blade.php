@@ -40,33 +40,43 @@
     </nav>
     <div class="container mt-5">
         <h3>Tabel Guru</h3>
-        <a href="#" class="btn btn-outline-secondary my-3">Tambah</a>
+       <div class="text-end mb-4">
+            <a href="/admin/guru/create" class="btn btn-primary my-2"> + Tambah Data</a>
+        </div>
         <div class="row justify-content-center align-items-center">
                 <table class="table table-hover table-striped table-bordered border-dark">
                             <thead>
                                 <tr class="table-hover table-dark table-active"> 
                                     <th scope="col">No</th>
                                     <th scope="col">Nama</th>
-                                    <th scope="col">Jenis Kelamin</th>
-                                    <th scope="col">jabatan</th>
+                                    <th scope="col">Jabatan</th>
                                     <th scope="col">Mapel</th>
+                                    <th scope="col">Foto</th>
                                     <th class="text-center" scope="col">Aksi</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr class="table-active">
-                                    <th scope="row">1</th>
-                                    <td>Udin</td>
-                                    <td>Laki Laki</td>
-                                    <td>kepsek</td>
-                                    <td>MTK</td>
-                                    <td> <a href="">Edit</a>
-                                    |
-                                    <a href="">Hapus</a>
+                                @foreach($guru as $data)
+                                <tr>
+                                    <td>{{ $loop->iteration }}</td>  {{-- No: gunakan $loop->iteration --}}
+                                    <td>{{ $data->nama_guru }}</td>
+                                    <td>{{ $data->jabatan }}</td>
+                                    <td>{{ $data->mapel }}</td>
+                                    <td>
+                                        <img src="{{ asset('assets/img/' . $data->foto) }}" width="50" height="50" style="object-fit: cover; border-radius: 50%;">
+                                    </td>
+                                    <td class="text-center">
+                                      <a href="/admin/guru/{{ $data->id }}/edit" class="btn btn-sm btn-warning">Edit</a> |
+                                        <form action="/admin/guru/{{ $data->id }}" method="POST" class="d-inline" onsubmit="return confirm('Apakah anda yakin ingin menghapus data ini?')">
+                                            @csrf
+                                            @method('DELETE')
+                                            <button type="submit" class="btn btn-sm btn-danger">Hapus</button>
+                                        </form>
                                     </td>
                                 </tr>
-                        </tbody>
-                </table>    
+                                @endforeach
+                            </tbody>
+                </table>   
         </div>
     </div>
 </body>

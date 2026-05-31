@@ -76,12 +76,8 @@
     <div class="section1-title">
       <span>STRUKTUR ORGANISASI</span>
     </div>
-    <div class="text-end mb-4">
-     <a href="/Sdm/tambah" class="btn btn-primary my-2"> + Tambah Data</a
-    </div>
-
 <div class="sdm-container">
-  
+
   <div class="grid-pengajar">
     @foreach($sdm as $data)
       @if($data->jabatan == 'Kepala Sekolah')
@@ -90,41 +86,25 @@
           <div class="info-struktur">
             <p class="nama-struktur">{{ $data->nama_guru }}</p>
             <p class="jabatan-struktur">{{ $data->jabatan }}</p>
-            <a href="/Sdm/{{ $data->id }}/edit" class="btn btn-sm btn-warning"> Edit</a>
-          <form action="/Sdm/{{ $data->id }}" method="POST" class="d-inline"
-                onsubmit="return confirm('Apakah anda yakin ingin menghapus data ini?')">
-              @csrf
-              @method('DELETE')
-              <button type="submit" class="btn btn-sm btn-danger">
-                  Hapus
-              </button>
-          </form>
           </div>
         </div>
       @endif
     @endforeach
   </div>
 
-  <div class="struktur-row" style="display: flex; flex-wrap: wrap; justify-content: center; gap: 20px;">
+<div class="struktur-row" style="display: flex; flex-wrap: wrap; justify-content: center; gap: 20px;">
     @foreach($sdm as $data)
-      @if($data->jabatan != 'Kepala Sekolah')
+        @if($data->jabatan != 'Kepala Sekolah')
         <div class="card-custom">
-          <img src="{{ asset('assets/img/' . $data->foto) }}" alt="{{ $data->jabatan }}">
-          <div class="info-struktur">
-            <p class="nama-struktur">{{ $data->nama_guru }}</p>
-            <p class="jabatan-struktur">{{ $data->jabatan }}</p>
-              <a href="/Sdm/edit/{{ $data->id }}" class="btn btn-sm btn-warning">Edit</a>
-              <form action="/Sdm/hapus/{{ $data->id }}" method="POST" class="d-inline"
-                  onsubmit="return confirm('Apakah anda yakin ingin menghapus data ini?')">
-                @csrf
-                @method('DELETE')
-                <button type="submit" class="btn btn-sm btn-danger">Hapus</button>
-            </form>
-          </div>
+            <img src="{{ asset('assets/img/' . $data->foto) }}" alt="{{ $data->jabatan }}">
+            <div class="info-struktur">
+                <p class="nama-struktur">{{ $data->nama_guru }}</p>
+                <p class="jabatan-struktur">{{ $data->jabatan }}</p>
+            </div>
         </div>
-      @endif
+        @endif
     @endforeach
-  </div>
+</div>
 
 </div>
 
@@ -135,11 +115,20 @@
 <div class="section2-title">
         <span>TENAGA PENDIDIK & STAF TENAGA PENDIDIK</span>
       </div>
-
-
-
     <div class="sdm-container">
-
+<div class="sdm-grid">
+    @foreach($sdm as $data)
+        @if($data->jabatan != 'Kepala Sekolah')
+        <div class="card-sdm">
+            <img src="{{ asset('assets/img/' . $data->foto) }}" alt="{{ $data->nama_guru }}">
+            <div class="info-sdm">
+                <p class="nama-sdm">{{ $data->nama_guru }}</p>
+                <p class="jabatan-sdm">{{ $data->mapel ?? '-' }}</p>
+            </div>
+        </div>
+        @endif
+    @endforeach
+</div>
       <div class="sdm-grid">
         <div class="card-sdm">
           <img src="assets/img/eris.jpeg" alt="Guru 1">

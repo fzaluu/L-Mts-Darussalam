@@ -15,8 +15,8 @@ return new class extends Migration
             $table->id();
             $table->string('nama_guru');
             $table->string('foto');
-            $table->string('mapel');
-            $table->string('jabatan');
+            $table->string('mapel')->nullable();
+            $table->string('jabatan')->nullable();
             $table->timestamps();
         });
     }

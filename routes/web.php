@@ -1,9 +1,7 @@
 <?php
-<<<<<<< HEAD
 
 use App\Http\Controllers\SdmController;
-=======
->>>>>>> d486cdc6a0b9b9c4b21f9de288b637165541e2c7
+
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\UserController;
@@ -52,6 +50,7 @@ Route::middleware('auth')->group(function () {
         return view('admin.kelas.index');
     });
     // CRUD users
+
     Route::resource('users', UserController::class);
 
     // Jalur untuk Logout
@@ -60,9 +59,16 @@ Route::middleware('auth')->group(function () {
 
 
 //SDM
-Route::get('/Sdm', [SdmController::class, 'index']);
-Route::get('/Sdm/tambah', [SdmController::class, 'create']);
-Route::post('/Sdm/simpan', [SdmController::class, 'store']);
-Route::get('/Sdm/edit/{id}', [SdmController::class, 'edit']);
-Route::put('/Sdm/update/{id}', [SdmController::class, 'update']);   
-Route::delete('/Sdm/hapus/{id}', [SdmController::class, 'destroy']);
+// Route::get('/Sdm', [SdmController::class, 'index']);
+// Route::get('/Sdm/tambah', [SdmController::class, 'create']);
+// Route::post('/Sdm/simpan', [SdmController::class, 'store']);
+// Route::get('/Sdm/edit/{id}', [SdmController::class, 'edit']);
+// Route::put('/Sdm/update/{id}', [SdmController::class, 'update']);   
+// Route::delete('/Sdm/hapus/{id}', [SdmController::class, 'destroy']);
+Route::get('/admin/guru', [SdmController::class, 'index']);
+Route::get('/Sdm', [SdmController::class, 'sdm']);
+Route::get('/admin/guru/create', [SdmController::class, 'create']);
+Route::post('/admin/guru', [SdmController::class, 'store']);
+Route::get('/admin/guru/{id}/edit', [SdmController::class, 'edit']);
+Route::put('/admin/guru/{id}', [SdmController::class, 'update']);
+Route::delete('/admin/guru/{id}', [SdmController::class, 'destroy']);
