@@ -7,13 +7,6 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
-
-    @if(session('success'))
-    <div class="alert alert-success text-center">
-        {{ session('success')}}
-    </div>
-    @endif
-
     <nav class="navbar navbar-expand-md navbar-light bg-primary">
         <div class="container">
             <a class="navbar-brand" href="#">Latihan</a>
@@ -45,6 +38,12 @@
             </div>
         </div>
     </nav>
+
+        @if(session('success'))
+        <div class="alert alert-success text-center">
+            {{ session('success')}}
+        </div>
+        @endif
         <h3>Selamat Datang,{{ Auth::user()->name }}!</h3>
 
         <form action="{{ route('logout')}}" method="post" class="d-inline">
